@@ -1,0 +1,8 @@
+main
+	header
+		= back_link
+		h1 New Assignment
+		p = "on: #{@date.strftime('%D')}"
+
+	section
+		= render "form"

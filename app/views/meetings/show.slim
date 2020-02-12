@@ -1,0 +1,7 @@
+main
+	header
+		= back_link
+		h1 = "#{ @date.strftime('%D') } meeting"
+
+	section
+		- @parts.

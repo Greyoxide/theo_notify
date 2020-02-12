@@ -1,0 +1,19 @@
+= errors(@assignment)
+
+section
+  = form_for @assignment do |a|
+    .noshow = a.date_field :date, value: @date
+    .row
+      .half
+        = a.label :title
+        = a.text_field :title
+      .qtr
+        = a.label :person_id, "Assigned to:"
+        = a.select :person_id, @people.collect { |p| [ p.full_name, p.id ] }
+
+      .qtr
+        = a.label :kind
+        = a.select :kind, Assignment.kinds.keys.map{ |r| [r.titleize, r]}
+
+    .bottom.floater.buttons
+      = a.submit class: 'primary button'

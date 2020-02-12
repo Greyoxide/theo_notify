@@ -1,0 +1,42 @@
+ul
+  list-style: none
+  &.list
+    margin: .5rem
+    li
+      padding: .5rem
+      border-bottom: 2px solid $page-dark
+      @include dark-mode
+        border-color: $darker-page
+      display: flex
+      justify-content: space-between
+      span
+        &:first-child
+          margin-right: 1rem
+          font-weight: bold
+
+
+  &.parts
+    margin: .5rem
+    li
+      padding: .5rem
+      border-bottom: 2px solid $page-dark
+      @include dark-mode
+        border-color: $darker-page
+      display: flex
+      span, a, .buttons, .links
+        padding: .25rem
+        &:first-child
+          flex: 1 0 15%
+        &:last-child
+          flex: 1 0 85%
+
+
+
+  &.forms
+    li
+      border-bottom: 2px solid $page-dark
+      form
+        padding: .5rem 0
+        .row
+          margin: 0
+          grid-gap: .5rem

@@ -1,0 +1,15 @@
+p = "Hi #{@person.first_name},"
+- if @assignments.count > 1
+  p You have the following assignments this week:
+  ul
+    - @assignments.each do |a|
+      li
+        p = a.date.strftime("%A-%B%e")
+        p
+          b = a.title.titleize
+
+- else
+  p = "This is a friendly automated email to let you know that this #{@assignments.first.date.strftime('%A')}, your assigned: #{@assignments.first.title.titleize}."
+
+p This email shows only your assignments for this week.  To view all of the assignments assigned to you, add the following page to your bookmarks
+= link_to "Vew all assignments", url_for(@person)

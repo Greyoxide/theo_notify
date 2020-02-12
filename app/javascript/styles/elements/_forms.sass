@@ -1,0 +1,40 @@
+form
+  padding: 1rem
+  margin: auto
+  input:not(.button), label
+    width: 100%
+
+  input[type=text], input[type=date], input[type=email], input[type=number], input[type=tel], input[type=time], input[type=url], input[type=password], select
+    padding: .5rem 1rem
+    margin: .5rem auto
+    border: 2px solid lighten($font-color, 30%)
+    @include dark-mode
+      border-color: $darker-page
+      background-color: $darker-page
+    border-radius: 3px
+    font-size: 1.1rem
+    &:focus
+      border-color: $primary
+
+  select
+    margin: .5rem 0
+    height: 2.5rem
+
+  .field_with_errors
+    *
+      color: red
+
+  label
+    font-weight: 600
+
+  .buttons
+    margin-top: 1rem
+
+  &.medium
+    max-width: 500px
+
+  &.small
+    max-width: 400px
+
+  .noshow
+    display: none

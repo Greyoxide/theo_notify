@@ -1,0 +1,8 @@
+b = "Hello, #{@user.email}"
+br
+br
+br
+p You've been invited to use Notify, a powerful tool used to keep everyone up to speed on their upcoming assignments.
+= link_to "Click here to set a password", edit_invitation_url(@user.invitation_token)
+br
+p For security this link is only active for the next 24 hours, please move quickly.

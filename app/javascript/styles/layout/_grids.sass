@@ -1,0 +1,50 @@
+.flex
+  display: flex
+  a, span, div
+    flex: 1
+    &:last-child
+      text-align: right
+
+// Define row columns
+.row
+  margin: .5rem 0
+  display: grid
+  grid-gap: 1rem
+  grid-template-columns: repeat(12, 1fr)
+
+  &>div
+    padding: .5rem
+    display: flex
+    flex-direction: column
+    justify-content: center
+
+  &>.full
+      grid-column: span 12
+
+  &>.third
+      grid-column: span 4
+      @include phone
+        grid-column: span 12
+      @include tablet
+        grid-column: span 3
+
+  &>.half
+      grid-column: span 6
+      @include phone
+        grid-column: span 12
+      @include tablet
+        grid-column: span 6
+
+  &>.three-qtr
+      grid-column: span 9
+      @include phone
+        grid-column: span 12
+      @include tablet
+        grid-column: span 6
+
+  &>.qtr
+      grid-column: span 3
+      @include phone
+        grid-column: span 12
+      @include tablet
+        grid-column: span 6

@@ -1,0 +1,43 @@
+*
+  font-family: 'Barlow'
+  font-size: 1rem
+  color: $font-color
+  @include dark-mode
+    color: $light-font
+
+h1,h2,h3,h4,h5,h6
+  font-weight: 600
+  &.subheading
+    font-weight: 800
+    font-style: italic
+    color: lighten($font-color, 15%)
+
+h1
+  font-size: 3rem
+  font-weight: 800
+h2
+  font-size: 2.5rem
+h3
+  font-size: 1.5rem
+  font-weight: 800
+h4
+  font-size: 1.5rem
+h5
+  font-size: 1rem
+
+
+a:not(.button)
+  color: $primary
+  font-weight: bold
+  &:hover
+    text-decoration: underline
+  &.secondary
+    color: $primary
+
+
+.left
+  text-align: left
+.center
+  text-align: center
+.right
+  text-align: right

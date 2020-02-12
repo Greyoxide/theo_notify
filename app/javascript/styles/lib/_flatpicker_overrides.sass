@@ -1,0 +1,28 @@
+.flatpickr-calendar
+  background-color: $page
+  @include dark-mode
+    background-color: $dark-page
+    *
+      color: $light-font
+.flatpickr-innerContainer
+  .flatpickr-rContainer
+    .flatpickr-days
+      .dayContainer
+        .flatpickr-day
+          &.selected
+            &.startRange, &.endRange
+              background-color: $primary
+              border-color: $primary
+
+
+.flatpickr-day
+  .endRange
+    &:hover
+      background: $primary-light
+      border-color: $primary-light
+
+.flatpickr-days
+  .dayContainer
+    .prevMonthDay
+      @include dark-mode
+        color: $darker-font

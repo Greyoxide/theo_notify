@@ -1,0 +1,12 @@
+main
+  header
+    = back_link
+    h1 = @person.full_name
+    = link_to "Edit #{@person.first_name}", [:edit, @person] if @current_user
+
+  section
+    ul.parts
+      - @assignments.each do |a|
+        li
+          span = a.date.strftime('%D')
+          span = a.title

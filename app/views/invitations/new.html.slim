@@ -1,0 +1,9 @@
+header
+  h1 Welcome to Notify
+  p Please set a password
+
+= errors_for(@user)
+
+section
+  = form_with @user do |form|
+
