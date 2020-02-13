@@ -81,5 +81,8 @@ development:
 production:
   <<: *default
   database: notify_production
-  username: notify
-  password: <%= ENV['NOTIFY_DATABASE_PASSWORD'] %>
+  host: localhost
+  encoding: utf8
+  pool: 5
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
