@@ -18,7 +18,7 @@ WebFont.load({
   }
 });
 
-import('styles/application.css.sass');
+import('styles/application.sass');
 
 import flatpickr from "flatpickr"
 require("flatpickr/dist/flatpickr.css")
