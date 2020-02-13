@@ -1,0 +1,10 @@
+section#errors
+  = errors(@user)
+
+section
+  = form_for @user do |user|
+    = user.label :email
+    = user.email_field :email
+
+    .buttons
+      = user.submit class: 'primary button'

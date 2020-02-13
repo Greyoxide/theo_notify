@@ -16,3 +16,38 @@
           display: block
           padding: 1rem 1.5rem
           text-transform: uppercase
+
+
+  @include phone
+    nav
+      position: fixed
+      width: 100%
+      height: 100%
+      margin-top: 3rem
+      top: 0
+      left: 0
+      background-color: $page
+      padding: 2rem
+      display: none
+      ul
+        li
+          display: block
+          a
+            font-size: 2rem
+            padding: .5rem
+            display: block
+            text-align: right
+
+      &.is-active
+        display: block
+
+    #burger
+      padding: 1rem
+      .inner
+        @include burger(25px, 3px, 5px, $primary)
+        @include dark-mode
+          @include burger(25px, 3px, 5px, $darker-page)
+      cursor: pointer
+      &.is-active
+        .inner
+          @include burger-to-cross

@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 
 require('./part_select.coffee')
+require('./navigation.coffee')
 
 var WebFont = require('webfontloader');
 

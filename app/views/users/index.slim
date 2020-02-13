@@ -1,0 +1,11 @@
+main
+  header
+    h1 Users
+    = link_to "+ New User", [:new, :user]
+
+  section
+    ul.list
+      - @users.order(:status).each do |user|
+        li
+          = link_to user.email, [:edit, user]
+          span = user.status.titleize
