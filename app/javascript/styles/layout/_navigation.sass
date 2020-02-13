@@ -41,13 +41,16 @@
       &.is-active
         display: block
 
-    #burger
-      padding: 1rem
+  #burger
+    display: none
+    padding: 1rem
+    @include phone
+      display: block
+    .inner
+      @include burger(25px, 3px, 5px, $primary)
+      @include dark-mode
+        @include burger(25px, 3px, 5px, $darker-page)
+    cursor: pointer
+    &.is-active
       .inner
-        @include burger(25px, 3px, 5px, $primary)
-        @include dark-mode
-          @include burger(25px, 3px, 5px, $darker-page)
-      cursor: pointer
-      &.is-active
-        .inner
-          @include burger-to-cross
+        @include burger-to-cross
