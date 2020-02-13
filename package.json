@@ -8,7 +8,6 @@
     "@rails/webpacker": "4.2.2",
     "coffee-loader": "^0.9.0",
     "coffeescript": "1.12.7",
-    "flatpickr": "^4.6.3",
     "jquery": "^3.4.1",
     "turbolinks": "^5.2.0",
     "webfontloader": "^1.6.28"

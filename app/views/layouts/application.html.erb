@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <%= stylesheet_link_tag "https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.css" %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -13,5 +13,7 @@
 		<%= flash_messages(flash) %>
 		<%= render 'nav_bar' %>
     <%= yield %>
+    <%= javascript_include_tag "https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.3/flatpickr.min.js" %>
+
   </body>
 </html>
