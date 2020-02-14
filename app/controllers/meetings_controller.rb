@@ -4,7 +4,7 @@ class MeetingsController < ApplicationController
 		@date = Date.parse(params[:date].to_s)
 		@assignments = Assignment.where(date: @date)
 		@list = PartList.new(@date).items - @assignments.map{ |r| r.title }
-		@people = Person.all
+		@people = Person.all.order(:last_name)
   end
 
 	def show
