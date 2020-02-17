@@ -32,6 +32,7 @@ gem 'has_scope'
 gem 'friendly_id', '~> 5.2.4'
 
 gem 'delayed_job_active_record'
+gem "daemons"
 gem 'whenever', require: false
 
 # Reduces boot times through caching; required in config/boot.rb
