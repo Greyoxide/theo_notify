@@ -33,6 +33,6 @@ module Notify
     config.generators.system_tests = nil
     config.active_job.queue_adapter = :delayed_job
 
-    config.time_zone = ENV[TIME_ZONE]
+    config.time_zone = ENV['TIME_ZONE']
   end
 end
