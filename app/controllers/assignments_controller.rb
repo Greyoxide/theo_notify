@@ -19,7 +19,7 @@ class AssignmentsController < ApplicationController
       format.html do
         @date = Date.parse(params[:date].to_s)
         # @assignments = Assignment.where(date: @date)
-        @people = Person.all
+        @people = Person.all.order(:last_name)
         # @list = PartList.new(@date).items - @assignments.map{ |r| r.title }
         @assignment = Assignment.new
       end
