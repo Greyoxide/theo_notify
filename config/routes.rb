@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	resources :users
 	resources :invitations
 	resources :password_resets
+	resources :batch_assignments
 
 	resources :people
 	resources :assignments

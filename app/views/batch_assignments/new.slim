@@ -1,0 +1,10 @@
+main
+  header
+    = back_link
+    h1 Batch Assignments
+
+  section
+    ul.forms#batch
+
+    .buttons.left
+      = link_to "+ Add New", [:new, :assignment], class: 'small primary button', remote: true

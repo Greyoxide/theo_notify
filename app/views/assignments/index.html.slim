@@ -1,29 +1,22 @@
-#dashboard
-	#side
-		.inner
-			section
-				h3 New Midweek Meeting
-				= form_with url: new_meeting_path, method: :get, local: true do |f|
-					= f.label :date
-					= f.text_field :date, data: { behavior: 'flatpickr' }
-					.buttons
-						= f.submit "New Meeting", class: 'small primary button'
 
-			section
-				h3 New Assignment
-				= form_with url: new_assignment_path, method: :get, local: true do |f|
-					= f.label :date
-					= f.text_field :date, data: { behavior: 'flatpickr' }
-					.buttons
-						= f.submit "New Assignment", class: 'small primary button'
-	main
-		header
-			h1 Assignments
+= render 'midweek_meeting_modal'
+= render 'single_assignment_modal'
 
-		ul.parts
-			- @assignments.group_by(&:date).each do |date, assignments|
-				h4 = date
-				- assignments.group_by(&:kind).each do |kind, assignments|
-					h5 = kind.titleize
-					ul.list
-						= render assignments
+main
+	header
+		h1 Assignments
+		ul.links
+			li
+				a.modal-open data = {modal: 'midweek'} New Midweek Meeting
+			li
+				a.modal-open data = {modal: 'single'} New Assignment
+			li
+				= link_to "Batch Assign", [:new, :batch_assignment]
+
+	ul.parts
+		- @assignments.group_by(&:date).each do |date, assignments|
+			h4 = date
+			- assignments.group_by(&:kind).each do |kind, assignments|
+				h5 = kind.titleize
+				ul.list
+					= render assignments

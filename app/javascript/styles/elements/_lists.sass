@@ -25,10 +25,9 @@ ul
       display: flex
       span, a, .buttons, .links
         padding: .25rem
-        &:first-child
-          flex: 1 0 15%
-        &:last-child
-          flex: 1 0 85%
+        flex: 1
+        &.body
+          flex: 1 0 80%
 
       @include phone
         display: block
@@ -45,3 +44,11 @@ ul
         .row
           margin: 0
           grid-gap: .5rem
+
+  &.links
+    li
+      display: inline
+      margin-right: .5rem
+      a
+        display: inline-block
+        padding: .25rem

@@ -1,3 +1,4 @@
 li
   = link_to assignment.person.full_name, assignment.person
-  span = assignment.title.titleize
+  span.body = assignment.title.titleize
+  = link_to "Edit", [:edit, assignment]

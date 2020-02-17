@@ -1,0 +1,2 @@
+module BatchAssignmentsHelper
+end

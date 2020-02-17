@@ -1,0 +1,20 @@
+li
+  = form_for @assignment do |a|
+    .noshow = a.date_field :date, value: @date
+    .row
+      .qtr
+        = a.label :date
+        = a.text_field :date, data: { behavior: 'flatpickr' }
+      .qtr
+        = a.label :title
+        = a.text_field :title
+      .qtr
+        = a.label :person_id, "Assigned to:"
+        = a.select :person_id, @people.collect { |p| [ p.full_name, p.id ] }
+
+      .qtr
+        = a.label :kind
+        = a.select :kind, Assignment.kinds.keys.map{ |r| [r.titleize, r]}
+
+    .hidden
+      = a.submit class: 'primary button'

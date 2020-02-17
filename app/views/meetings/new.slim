@@ -7,20 +7,21 @@ main
     ul.forms
       - @list.each do |p|
         li id=p.parameterize
+
+
           = form_with model: Assignment.new do |a|
+            .buttons.right
+              a.cancel.button.small.form-remover data = {target: p.parameterize} remove
             = a.hidden_field :date, value: @date
             .row
-              .three-qtr
-                .row
-                  .half
-                    = a.label :title
-                    = a.text_field :title, value: p
-                  .qtr
-                    = a.label :person_id, "Assigned to:"
-                    = a.select :person_id, @people.collect { |p| [ p.full_name, p.id ] }
-                  .qtr
-                    = a.label :kind
-                    = a.select :kind, Assignment.kinds.keys.map{ |r| [r.titleize, r]}
+              .half
+                = a.label :title
+                = a.text_field :title, value: p
               .qtr
-                .buttons
-                  = a.submit class: 'small primary button'
+                = a.label :person_id, "Assigned to:"
+                = a.select :person_id, @people.collect { |p| [ p.full_name, p.id ] }
+              .qtr
+                = a.label :kind
+                = a.select :kind, Assignment.kinds.keys.map{ |r| [r.titleize, r]}
+
+              = a.submit class: 'hidden'

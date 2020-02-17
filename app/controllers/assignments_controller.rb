@@ -9,11 +9,23 @@ class AssignmentsController < ApplicationController
   end
 
   def new
-    @date = Date.parse(params[:date].to_s)
-    @assignments = Assignment.where(date: @date)
-    @people = Person.all
-    @list = PartList.new(@date).items - @assignments.map{ |r| r.title }
-    @assignment = Assignment.new
+    respond_to do |format|
+      format.js do
+        @date = Date.today
+        @people = Person.all
+        @assignment = Assignment.new
+      end
+
+      format.html do
+        @date = Date.parse(params[:date].to_s)
+        # @assignments = Assignment.where(date: @date)
+        @people = Person.all
+        # @list = PartList.new(@date).items - @assignments.map{ |r| r.title }
+        @assignment = Assignment.new
+      end
+    end
+
+
   end
 
   def create
@@ -36,6 +48,21 @@ class AssignmentsController < ApplicationController
           render :new
         end
       end
+    end
+  end
+
+  def edit
+    @assignment = Assignment.find(params[:id])
+    @date = @assignment.date
+    @people = Person.all
+  end
+
+  def update
+    @assignment = Assignment.find(params[:id])
+    if @assignment.update(assignment_params)
+      redirect_to assignments_path
+    else
+      render :edit
     end
   end
 
