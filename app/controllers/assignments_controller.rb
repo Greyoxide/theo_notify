@@ -2,7 +2,7 @@ class AssignmentsController < ApplicationController
   before_action :authorize_user
 
   def index
-		@assignments = Assignment.where("date >= ?" 1.week.ago).order(date: :asc)
+		@assignments = Assignment.where("date >= ?", 1.week.ago).order(date: :asc)
   end
 
   def show
