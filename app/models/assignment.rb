@@ -14,5 +14,5 @@ class Assignment < ApplicationRecord
     end
   end
 
-  enum kind: {primary_part: 0, secondary_part: 1, sound: 2, support: 3}
+  enum kind: {primary_part: 0, secondary_part: 1, sound: 2, support: 3, service_group: 4}
 end
