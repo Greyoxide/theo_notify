@@ -1,6 +1,6 @@
 li
   span = assignment.date.strftime("%b/%d/%y")
-  span = assignment.kind
+  span = assignment.kind.humanize
   = link_to assignment.person.full_name, assignment.person
   span.body = assignment.title.titleize
   = link_to "Edit", [:edit, assignment]
