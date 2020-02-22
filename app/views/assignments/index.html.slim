@@ -13,10 +13,5 @@ main
 			li
 				= link_to "Batch Assign", [:new, :batch_assignment]
 
-	ul.parts
-		- @assignments.group_by(&:date).each do |date, assignments|
-			h4 = date
-			- assignments.group_by(&:kind).each do |kind, assignments|
-				h5 = kind.titleize
-				ul.list
-					= render assignments
+	ul.parts.list
+		= render assignments
