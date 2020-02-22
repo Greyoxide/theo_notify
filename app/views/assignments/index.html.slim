@@ -14,7 +14,7 @@ main
 				= link_to "Batch Assign", [:new, :batch_assignment]
 
 	ul.parts
-		- @assignments.group_by{ |r| r.date.strftime('%B') }.each do |month, assignments|
+		- @assignments.group_by{ |r| r.date.strftime('%b') }.each do |month, assignments|
 			li
 				h3 = month
 				ul.list
