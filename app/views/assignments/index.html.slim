@@ -1,7 +1,7 @@
 
 = render 'midweek_meeting_modal'
 = render 'single_assignment_modal'
-
+= render 'search_form_modal'
 main
 	header
 		h1 Assignments
@@ -12,6 +12,10 @@ main
 				a.modal-open data = {modal: 'single'} New Assignment
 			li
 				= link_to "Batch Assign", [:new, :batch_assignment]
+			li
+				a.modal-open data = {modal: 'search'} Search
+
+
 
 	ul.parts
 		- @assignments.group_by{ |r| r.date.strftime('%b') }.each do |month, assignments|

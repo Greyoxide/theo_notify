@@ -2,7 +2,7 @@ class AssignmentsController < ApplicationController
   before_action :authorize_user
 
   def index
-		@assignments = Assignment.where("date >= ?", 1.week.ago).order(date: :asc)
+    @assignments = Assignment.filter_by(params.slice(:by_kind, :by_status, :starts_with)).includes(:person)
   end
 
   def show
@@ -24,7 +24,6 @@ class AssignmentsController < ApplicationController
         @assignment = Assignment.new
       end
     end
-
 
   end
 
@@ -60,7 +59,10 @@ class AssignmentsController < ApplicationController
   def update
     @assignment = Assignment.find(params[:id])
     if @assignment.update(assignment_params)
-      redirect_to assignments_path
+      respond_to do |format|
+        format.html{redirect_to assignments_path}
+        format.js{}
+      end
     else
       render :edit
     end
@@ -70,5 +72,9 @@ class AssignmentsController < ApplicationController
 
   def assignment_params
     params.require(:assignment).permit!
+  end
+
+  def filtering_params(params)
+    params.slice(:by_kind, :by_status, :starts_with)
   end
 end

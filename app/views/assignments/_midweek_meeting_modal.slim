@@ -2,7 +2,7 @@
   section
     a.closer Close
     h3 New Midweek Meeting
-    = form_with url: new_meeting_path, method: :get, local: true do |f|
+    = form_with url: [:edit, :meetings], method: :get, local: true do |f|
       = f.label :date
       = f.text_field :date, data: { behavior: 'flatpickr' }
       .buttons

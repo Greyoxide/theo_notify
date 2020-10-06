@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 	resources :people
 	resources :assignments
 	resources :parts
-	resources :meetings
+	resources :meetings do
+		collection do
+			get 'edit'
+		end
+	end
 
 	get   '/signin',   to: 'sessions#new'
 	post  '/signin',   to: 'sessions#create'

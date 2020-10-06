@@ -1,8 +1,6 @@
 class Assignment < ApplicationRecord
-  belongs_to :person
+  belongs_to :person, optional: true
   include Filterable
-
-	scope :date_range, -> (range = range.to_a) { where date: range[0]..range[1] }
 
   default_scope { order(date: :desc) }
 
@@ -15,4 +13,16 @@ class Assignment < ApplicationRecord
   end
 
   enum kind: {primary_part: 0, secondary_part: 1, sound: 2, support: 3, service_group: 4}
+  enum status: { unassigned: 0, assigned: 1 }
+
+  before_save :update_status
+
+  def update_status
+    self.status = 'unassigned' if self.person_id.blank?
+    self.status = 'assigned' if self.person_id.present?
+  end
+
+  scope :by_kind, -> (kinds) { where kind: kinds unless (kinds - ['', nil]).empty? }
+  scope :by_status, -> (status) { where status: status if status.present? }
+  scope :starts_with, -> (name) { where("title ilike ?", "#{name}%") }
 end
