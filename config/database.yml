@@ -80,9 +80,9 @@ development:
 #
 production:
   <<: *default
-  database: notify_production
+  database: db
   url: <%= ENV['DATABASE_URL'] %>
   encoding: utf8
   pool: 5
-  username: <%= ENV['DATABASE_USER'] %>
+  username: <%= ENV['DATABASE_USER'] %> 
   password: <%= ENV['DATABASE_PASSWORD'] %>
