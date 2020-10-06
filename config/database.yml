@@ -81,7 +81,7 @@ development:
 production:
   <<: *default
   database: notify_production
-  host: localhost
+  url: <%= ENV['DATABASE_URL'] %>
   encoding: utf8
   pool: 5
   username: <%= ENV['DATABASE_USER'] %>
