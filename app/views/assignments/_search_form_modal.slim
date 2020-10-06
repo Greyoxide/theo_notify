@@ -1,0 +1,21 @@
+#search.modal.right
+  section
+    a.closer Close
+    .search
+        = form_with url: assignments_path, action: "index", method: :get, local: true do
+          = text_field_tag :starts_with, nil , placeholder: 'search...', value: params[:starts_with]
+          ul.checkboxes
+            h5 Assignment Kind
+            = collection_check_boxes(nil, :by_kind, Assignment.kinds.map{ |k, v| [k.humanize, v] }, :second, :first, { checked: params[:by_kind] }) do |item|
+              li.checkbox
+                = item.check_box
+                = item.label
+          ul.checkboxes
+            h5 Assignment Status
+            = collection_radio_buttons(nil, :by_status, Assignment.statuses.map{ |k, v| [k, v] }, :first, :first, {checked: params[:by_status]}) do |item|
+              li.checkbox
+                = item.radio_button
+                = item.label
+
+          .buttons
+            = submit_tag 'Find', class: 'primary button', name: nil

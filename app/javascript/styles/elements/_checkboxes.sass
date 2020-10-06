@@ -1,0 +1,20 @@
+.checkboxes
+  display: flex
+  flex-wrap: wrap
+  margin: 1rem auto
+  .checkbox
+    background-color: $page-dark
+    margin: .25rem
+    border-radius: .25rem
+    border: .25rem
+    input
+      display: none
+      &:checked
+        & + label
+          background-color: $primary
+          color: white
+    label
+      padding: 1rem
+      cursor: pointer
+      filter: drop-shadow( .25rem .25rem .5rem transparentize($font-color, .8) )
+      border-radius: .25rem

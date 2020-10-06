@@ -1,0 +1,24 @@
+main
+  header
+    = back_link
+    h1 = "#{@date.strftime('%D')} Meeting"
+		
+section
+	header
+		h3 Parts
+		
+	ul.forms
+		- @assignments.each do |assignment|
+			li
+				= form_with model: assignment do |a|
+					= a.hidden_field :date, value: @date
+					.row
+						.half
+							= a.label :title
+							= a.text_field :title
+						.qtr
+							= a.label :person_id, "Assigned to:"
+							= a.select :person_id, @people.collect { |p| [ p.full_name, p.id ] }
+						.qtr
+							= a.label :kind
+							= a.select :kind, Assignment.kinds.keys.map{ |r| [r.titleize, r]}
